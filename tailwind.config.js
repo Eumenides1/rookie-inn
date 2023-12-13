@@ -20,6 +20,9 @@ module.exports = {
           '0.65rem', '0.75rem'
         ],
       },
+      boxShadow: {
+        'l-white': '-10px 0 10px white'
+      }
     },
   },
   plugins: [],
