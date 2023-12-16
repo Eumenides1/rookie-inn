@@ -29,7 +29,7 @@
       </li>
     </ul>
     <m-popup v-model="isVisable">
-      <div>我是内容</div>
+      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
     </m-popup>
   </div>
 </template>
@@ -38,6 +38,7 @@
 // vite 构建的项目中，我们可以直接使用defineProps方法
 import {onBeforeUpdate, ref, watch} from "vue";
 import { useScroll } from "@vueuse/core";
+import MenuVue from '@/views/main/components/menu/index.vue'
 
 defineProps({
   data: {
@@ -78,6 +79,10 @@ watch(currentCategoryIndex, (val) => {
   sliderStyle.value = {
     transform: `translateX(${ulScrollLeft.value + left - 10}px)`,
     width: width + 'px'
+  }
+  if (isVisable.value) {
+    isVisable.value = false
+    ulTarget.value.scrollLeft = left + ulTarget.value.scrollLeft
   }
 })
 
