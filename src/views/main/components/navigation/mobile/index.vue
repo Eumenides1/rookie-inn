@@ -8,7 +8,10 @@
           :style="sliderStyle"
           class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200"></li>
       <!--汉堡按钮-->
-      <li class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white">
+      <li
+          class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+          @click="onShowPopup"
+      >
         <m-svg-icon class="w-1.5 h-1.5" name="hamburger"></m-svg-icon>
       </li>
       <!--items-->
@@ -25,6 +28,9 @@
         {{ item.name }}
       </li>
     </ul>
+    <m-popup v-model="isVisable">
+      <div>我是内容</div>
+    </m-popup>
   </div>
 </template>
 
@@ -78,6 +84,13 @@ watch(currentCategoryIndex, (val) => {
 // item点击事件
 const onItemClick = (index) => {
   currentCategoryIndex.value = index
+}
+
+// 控制popup展示
+const isVisable = ref(false)
+
+const onShowPopup = () => {
+  isVisable.value = true
 }
 </script>
 
