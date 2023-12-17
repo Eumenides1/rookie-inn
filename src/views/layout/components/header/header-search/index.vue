@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <div>search</div>
+  <div class="w-full">
+    <m-search></m-search>
+  </div>
 </template>
 
 <style scoped lang="scss">
